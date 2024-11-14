@@ -23,7 +23,6 @@ public class HomePage extends BasePage {
             return this;
         }
         public HomePage enterNewPlaylistName (String playlistName){
-            findElement(playlistNameField).sendKeys(playlistName);
             findElement(playlistNameField).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.BACK_SPACE));
             findElement(playlistNameField).sendKeys(playlistName);
             findElement(playlistNameField).sendKeys(Keys.ENTER);
