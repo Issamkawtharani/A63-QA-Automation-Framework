@@ -1,5 +1,6 @@
 package pagefactory;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,7 @@ public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
     Actions actions;
+
 
     public BasePage(WebDriver givenDriver) {
         driver = givenDriver;

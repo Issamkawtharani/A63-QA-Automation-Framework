@@ -1,8 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
@@ -19,7 +16,9 @@ public class BaseTest {
     public static WebDriverWait wait = null;
     public static Actions actions = null;
     public String errorMessageUpdatePassword = "The new password must be at least 10 characters.";
-    public String homePageAddress ="https://qa.koel.app/#!/profile";
+    public String homePageAddress ="https://qa.koel.app/";
+    public String successMsg = "Profile updated.";
+
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -50,12 +49,12 @@ public class BaseTest {
         driver.get(url);
     }
 
-    @DataProvider(name = "IncorrectPswrdRequirements")
+    @DataProvider(name = "wrongEmailUpdate")
     public static Object[][] getDataFromDataProviders(){
         return new Object[][]{
-                {"Issam@testpro1", "Issam@1"},
-                {"Issam@testpro1", "ISSAM@1234567"},
-                {"Issam@testpro1", "issam@1234567"},
+                {"issam.kawtharanigmail.com"},
+                {"issam.kawtharani@gmailcom"},
+                {"issam.kawtharani@gmail"},
         };
     }
 }

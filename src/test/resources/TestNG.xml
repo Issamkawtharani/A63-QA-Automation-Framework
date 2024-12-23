@@ -6,7 +6,7 @@
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="BaseTest"/>
-            <class name="UpdatePassword"/>
+            <class name="UpdateEmail"/>
         </classes>
     </test>
 </suite>

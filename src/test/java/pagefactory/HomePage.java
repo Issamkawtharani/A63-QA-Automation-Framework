@@ -12,7 +12,7 @@ public class HomePage extends BasePage {
     WebElement profileName;
     //Current Password
     @FindBy(css = "#inputProfileCurrentPassword")
-    WebElement currentPswrd;
+    WebElement currentPassword;
     //Name Field
     @FindBy(css = "#inputProfileName")
     WebElement nameField;
@@ -20,8 +20,6 @@ public class HomePage extends BasePage {
     @FindBy(css = "#inputProfileEmail")
     WebElement emailField;
     //New Password Field
-    @FindBy(css = "#inputProfileNewPassword")
-    WebElement newPasswordField;
     //Save Button
     @FindBy(css = "button[class='btn-submit']")
     WebElement saveBtn;
@@ -52,7 +50,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage provideCurrentPassword(String password) {
-        findElement(currentPswrd).sendKeys(password);
+        findElement(currentPassword).sendKeys(password);
         return this;
     }
 
@@ -69,8 +67,9 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage provideNewPassword(String password) {
-        findElement(newPasswordField).sendKeys(password);
+    public HomePage provideEmail(String email) {
+        emailField.clear();
+        emailField.sendKeys(email);
         return this;
     }
 
@@ -88,8 +87,16 @@ public class HomePage extends BasePage {
         return findElement(errorMessage).getText();
     }
 
+    public String getNotificationMessage() {
+        return findElement(successMsg).getText();
+    }
+
     public HomePage logoutFromApp() {
         click(logoutBtn);
         return this;
+    }
+
+    public String getCurrentPassword() {
+        return currentPassword.getText();
     }
 }
