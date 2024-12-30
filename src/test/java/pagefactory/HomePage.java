@@ -34,7 +34,9 @@ public class HomePage extends BasePage {
     WebElement logoutBtn;
 
 
-    public HomePage(WebDriver givenDriver) { super(givenDriver); }
+    public HomePage(WebDriver givenDriver) {
+        super(givenDriver);
+    }
 
 
     //Changed the approach for assert
@@ -96,7 +98,8 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public String getCurrentPassword() {
-        return currentPassword.getText();
+    public String getEmailField() {
+        return emailField.getAttribute("value");
+
     }
 }
